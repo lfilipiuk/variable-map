@@ -39,8 +39,7 @@ export function createEntities(data, parent = null) {
 
     Object.entries(data).forEach(([, value]) => {
       const nextParent = "id" in data ? data : parent;
-      if ("additionalSource" in data) {
-      } else {
+      if (!data.additionalSource) {
         const childResults = createEntities(value, nextParent);
         results = results.concat(childResults);
       }
@@ -54,7 +53,7 @@ export function createNodes(items) {
   return items.map((item) => ({
     id: item.uniqueId,
     position: { x: 0, y: 0 },
-    data: item,
+    data: { ...item, label: item.uniqueId},
   }));
 }
 

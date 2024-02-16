@@ -59,7 +59,6 @@ describe("createEdges", function () {
   });
 
   it("should generate edge from AdditionalSource to DataSourceVariable", function () {
-    console.log(items);
     expect(
       edges.some(
         (obj) =>
