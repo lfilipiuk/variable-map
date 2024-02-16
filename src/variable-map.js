@@ -1,8 +1,5 @@
 function generateUniqueId(id, typename) {
-  if (!id || !typename) {
-    return null;
-  }
-  return `${typename}-${id}`;
+  return id && typename ? `${typename}-${id}` : null;
 }
 
 export function createEntities(data, parent = null) {
@@ -10,26 +7,26 @@ export function createEntities(data, parent = null) {
 
   if (typeof data === "object" && data !== null) {
     if ("id" in data && "__typename" in data) {
-      let uniqueId;
-      if (data.__typename === "DataSourceVariable") {
-        uniqueId = generateUniqueId(data.placeholderName, data.__typename);
-      } else {
-        uniqueId = generateUniqueId(data.id, data.__typename);
+      const idKey =
+        data.__typename === "DataSourceVariable" ? "placeholderName" : "id";
+      const uniqueId = generateUniqueId(data[idKey], data.__typename);
+
+      let parentId = null;
+      if ("parentId" in data && data.parentId !== 0) {
+        parentId = generateUniqueId(data.parentId, data.__typename);
+      } else if (parent) {
+        const parentKey =
+          parent.__typename === "DataSourceVariable" ? "placeholderName" : "id";
+
+        parentId = generateUniqueId(parent[parentKey], parent.__typename);
       }
 
-      const alreadyHasParent = "parentId" in data && data.parentId !== "0";
-      let parentId = null;
-      if (alreadyHasParent) {
-        parentId = generateUniqueId(data.parentId, data.__typename);
-      } else {
-        if (parent.__typename === "DataSourceVariable") {
-          parentId = generateUniqueId(
-            parent.placeholderName,
-            parent.__typename,
-          );
-        } else {
-          parentId = generateUniqueId(parent.id, parent.__typename);
-        }
+      // Special handling for 'DataSourceVariables' with additionalSource
+      if (data.additionalSource && data.additionalSource.id) {
+        parentId = generateUniqueId(
+          data.additionalSource.id,
+          data.additionalSource.__typename,
+        );
       }
 
       const resultObject = {
@@ -42,8 +39,11 @@ export function createEntities(data, parent = null) {
 
     Object.entries(data).forEach(([, value]) => {
       const nextParent = "id" in data ? data : parent;
-      const childResults = createEntities(value, nextParent);
-      results = results.concat(childResults);
+      if ("additionalSource" in data) {
+      } else {
+        const childResults = createEntities(value, nextParent);
+        results = results.concat(childResults);
+      }
     });
   }
 
@@ -72,10 +72,14 @@ export function createEdges(items) {
     }
 
     // Special handling for 'AdditionalSource' nodes
-    if (item.__typename === "AdditionalSource" && item.mapping) {
+    if (item.__typename === "AdditionalSource" && item.mappingField) {
+      const uniqueId = generateUniqueId(
+        item.mappingField,
+        "DataSourceVariable",
+      );
       edges.push({
-        id: `edge-${item.mapping}-${item.uniqueId}`,
-        source: item.mapping,
+        id: `edge-${uniqueId}-${item.uniqueId}`,
+        source: uniqueId,
         target: item.uniqueId,
       });
     }
@@ -88,10 +92,14 @@ export function createEdges(items) {
       ...(item.imageGen ? item.imageGen.getConditionsPlaceholders : []),
     ];
 
-    placeholders.forEach((placeholder) => {
+    const uniquePlaceholders = [...new Set(placeholders)];
+
+    uniquePlaceholders.forEach((placeholder) => {
+      const uniqueId = generateUniqueId(placeholder, "DataSourceVariable");
+
       edges.push({
-        id: `edge-${placeholder}-${item.uniqueId}`,
-        source: placeholder,
+        id: `edge-${uniqueId}-${item.uniqueId}`,
+        source: uniqueId,
         target: item.uniqueId,
       });
     });
