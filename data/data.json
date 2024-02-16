@@ -1,0 +1,432 @@
+{
+  "data": {
+    "feedExports": {
+      "feedExports": [
+        {
+          "id": 110,
+          "icon": "feed-export-dsa",
+          "name": "Feed export #2",
+          "getPlaceholdersWithoutConditions": [
+            "url"
+          ],
+          "getConditionsPlaceholders": [
+            "brand"
+          ],
+          "__typename": "FeedExport"
+        },
+        {
+          "id": 111,
+          "icon": "shopmania",
+          "name": "Feed export #3",
+          "getPlaceholdersWithoutConditions": [
+            "brand",
+            "image_url",
+            "pricemin",
+            "product_id",
+            "product_name",
+            "url"
+          ],
+          "getConditionsPlaceholders": [],
+          "__typename": "FeedExport"
+        },
+        {
+          "id": 109,
+          "icon": "feed-export-gmc",
+          "name": "Feed export #1",
+          "getPlaceholdersWithoutConditions": [
+            "brand",
+            "image_url",
+            "nazev_bez_brandu",
+            "pricemin",
+            "product_id",
+            "product_name",
+            "url",
+            "zkouska_pole"
+          ],
+          "getConditionsPlaceholders": [],
+          "__typename": "FeedExport"
+        }
+      ],
+      "__typename": "Collection"
+    },
+    "additionalSources": {
+      "additionalSources": [
+        {
+          "id": 17,
+          "icon": "enrich-weather",
+          "name": "Počasí #1",
+          "mappingField": "Praha",
+          "mappingFields": [],
+          "__typename": "AdditionalSource"
+        },
+        {
+          "id": 18,
+          "icon": "enrich-sheet",
+          "name": "Google spreadsheet #2",
+          "mappingField": "brand",
+          "mappingFields": [],
+          "__typename": "AdditionalSource"
+        }
+      ],
+      "__typename": "Collection"
+    },
+    "campaignSettings": {
+      "campaignSettings": [
+        {
+          "id": 53,
+          "icon": "search-campaign",
+          "name": "Produktová kampaň #1",
+          "getPlaceholdersWithoutConditions": [
+            "brand",
+            "product_id"
+          ],
+          "getConditionsPlaceholders": [
+            "brand",
+            "pricemin"
+          ],
+          "adwordsSetting": {
+            "id": 32,
+            "getPlaceholdersWithoutConditions": [
+              "pricemin",
+              "savepercentage"
+            ],
+            "__typename": "AdwordsSetting"
+          },
+          "sklikSetting": null,
+          "bingSetting": null,
+          "keywordSettings": [
+            {
+              "id": 20,
+              "name": "asdas",
+              "getPlaceholdersWithoutConditions": [
+                "brand",
+                "nazev_bez_brandu",
+                "product_name",
+                "upraveny_nazev"
+              ],
+              "getConditionsPlaceholders": [],
+              "__typename": "KeywordSetting"
+            },
+            {
+              "id": 21,
+              "name": "asdas druhy",
+              "getPlaceholdersWithoutConditions": [
+                "brand",
+                "nazev_bez_brandu"
+              ],
+              "getConditionsPlaceholders": [],
+              "__typename": "KeywordSetting"
+            }
+          ],
+          "baseAdtexts": [
+            {
+              "id": 65,
+              "type": "ExpandedAdtext",
+              "parentId": 64,
+              "name": "Ad 12 podrazeny",
+              "getPlaceholdersWithoutConditions": [
+                "pricemin",
+                "savepercentage",
+                "url"
+              ],
+              "getConditionsPlaceholders": [],
+              "__typename": "BaseAdtext"
+            },
+            {
+              "id": 66,
+              "type": "ExpandedAdtext",
+              "parentId": 65,
+              "name": "Ad 15",
+              "getPlaceholdersWithoutConditions": [
+                "pricemin",
+                "url"
+              ],
+              "getConditionsPlaceholders": [],
+              "__typename": "BaseAdtext"
+            },
+            {
+              "id": 64,
+              "type": "ExpandedAdtext",
+              "parentId": 0,
+              "name": "Ad 12",
+              "getPlaceholdersWithoutConditions": [
+                "pricemin",
+                "product_name",
+                "savepercentage",
+                "upraveny_nazev",
+                "url"
+              ],
+              "getConditionsPlaceholders": [],
+              "__typename": "BaseAdtext"
+            }
+          ],
+          "bidRules": [
+            {
+              "id": 13,
+              "name": "CPC pravidlo #1",
+              "getConditionsPlaceholders": [
+                "brand"
+              ],
+              "__typename": "BidRule"
+            },
+            {
+              "id": 14,
+              "name": "CPC pravidlo #2",
+              "getConditionsPlaceholders": [
+                "mesto"
+              ],
+              "__typename": "BidRule"
+            }
+          ],
+          "__typename": "CampaignSetting"
+        }
+      ],
+      "__typename": "Collection"
+    },
+    "variables": {
+      "variables": [
+        {
+          "id": "gid://ppcbee-controll/Modifier/87",
+          "name": "upraveny nazev",
+          "placeholderName": "upraveny_nazev",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [
+            "product_name"
+          ],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/Modifier/88",
+          "name": "nazev bez brandu",
+          "placeholderName": "nazev_bez_brandu",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [
+            "brand",
+            "upraveny_nazev"
+          ],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/Modifier/89",
+          "name": "zkouska pole",
+          "placeholderName": "zkouska_pole",
+          "showValueType": "array",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/Modifier/90",
+          "name": "zkouska promenne s podminkou",
+          "placeholderName": "zkouska_promenne_s_podminkou",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [
+            "brand",
+            "product_name"
+          ],
+          "getConditionsPlaceholders": [
+            "savepercentage"
+          ],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/Modifier/91",
+          "name": "asd",
+          "placeholderName": "asd",
+          "showValueType": "image",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": {
+            "getPlaceholdersWithoutConditions": [
+              "brand",
+              "deliverydate",
+              "image_url",
+              "nazev_bez_brandu"
+            ],
+            "getConditionsPlaceholders": [],
+            "__typename": "ImageGen"
+          },
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/Modifier/92",
+          "name": "mesto",
+          "placeholderName": "mesto",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/Modifier/93",
+          "name": "templota",
+          "placeholderName": "templota",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [
+            "mesto",
+            "weather_today_temp_day"
+          ],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/949",
+          "name": "product_id",
+          "placeholderName": "product_id",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/950",
+          "name": "product_name",
+          "placeholderName": "product_name",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/951",
+          "name": "pricemin",
+          "placeholderName": "pricemin",
+          "showValueType": "number",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/952",
+          "name": "deliverydate",
+          "placeholderName": "deliverydate",
+          "showValueType": "number",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/953",
+          "name": "savepercentage",
+          "placeholderName": "savepercentage",
+          "showValueType": "number",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/954",
+          "name": "url",
+          "placeholderName": "url",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/955",
+          "name": "brand",
+          "placeholderName": "brand",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/956",
+          "name": "image_url",
+          "placeholderName": "image_url",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/957",
+          "name": "first_seen_on",
+          "placeholderName": "first_seen_on",
+          "showValueType": "date",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": null,
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/958",
+          "name": "weather_today_temp_day",
+          "placeholderName": "weather_today_temp_day",
+          "showValueType": "number",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": {
+            "id": 17,
+            "__typename": "AdditionalSource"
+          },
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/959",
+          "name": "sheet_akce_brandu",
+          "placeholderName": "sheet_akce_brandu",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": {
+            "id": 18,
+            "__typename": "AdditionalSource"
+          },
+          "__typename": "DataSourceVariable"
+        },
+        {
+          "id": "gid://ppcbee-controll/DataField/960",
+          "name": "sheet_akce_zapnuta",
+          "placeholderName": "sheet_akce_zapnuta",
+          "showValueType": "text",
+          "getPlaceholdersWithoutConditions": [],
+          "getConditionsPlaceholders": [],
+          "imageGen": null,
+          "additionalSource": {
+            "id": 18,
+            "__typename": "AdditionalSource"
+          },
+          "__typename": "DataSourceVariable"
+        }
+      ],
+      "__typename": "Collection"
+    }
+  }
+}
